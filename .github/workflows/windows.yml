@@ -34,6 +34,28 @@ jobs:
       run: |
         cd build
         msbuild ALL_BUILD.vcxproj
-        ls
-        cd Debug && ls && cd ..
-        cd Release && ls && cd ..
+        Compress-Archive -Path Debug\* -DestinationPath BuildFiles.zip
+        cd ..
+        
+    - name: Create Github Release
+      uses: actions/create-release@v1
+      id: create_release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        body: "This release was automatically created by Github Actions."
+        tag_name: 1.0.0
+        release_name: obj2voxel v1.0.0
+        draft: false
+        prerelease: false
+        
+    - name: Upload Release to Github
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: build/BuildFiles.zip
+        asset_name: BuildFiles.zip
+        asset_content_type: application/zip    
+
