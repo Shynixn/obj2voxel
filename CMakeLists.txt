@@ -26,7 +26,7 @@ add_subdirectory(voxelio)
 # OBJ2VOXEL LIBRARY #
 #####################
 
-add_library(obj2voxel STATIC
+add_library(obj2voxel SHARED
     src/3rd_party/tinyobj.hpp
     src/3rd_party/args.hpp
     src/arrayvector.hpp
