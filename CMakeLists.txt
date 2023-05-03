@@ -72,7 +72,7 @@ target_link_libraries(obj2voxel2 PRIVATE voxelio PRIVATE ${CMAKE_THREAD_LIBS_INI
 
 target_include_directories(obj2voxel2 PRIVATE voxelio/include)
 target_include_directories(obj2voxel2 PUBLIC include)
-
+generate_export_header(obj2voxel2)
 
 #################
 # OBJ2VOXEL CLI #
