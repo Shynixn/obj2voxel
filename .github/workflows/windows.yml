@@ -37,6 +37,13 @@ jobs:
         Compress-Archive -Path Debug\* -DestinationPath BuildFiles.zip
         cd ..
         
+    - uses: dev-drprasad/delete-tag-and-release@v0.2.1
+      with:
+        delete_release: true
+        tag_name: 1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+        
     - name: Create Github Release
       uses: actions/create-release@v1
       id: create_release
