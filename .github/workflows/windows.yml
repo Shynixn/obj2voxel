@@ -34,3 +34,6 @@ jobs:
       run: |
         cd build
         msbuild ALL_BUILD.vcxproj
+        ls
+        cd Debug && ls && cd ..
+        cd Release && ls && cd ..
