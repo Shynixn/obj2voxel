@@ -711,12 +711,14 @@ void obj2voxel_set_texture(obj2voxel_instance *instance, obj2voxel_texture *text
     instance->defaultTexture = texture;
 }
 
-void obj2voxel_set_input_file(obj2voxel_instance *instance, const char *file, const char *type)
-{
+extern "C" {
+ void obj2voxel_set_input_file(obj2voxel_instance *instance, const char *file, const char *type)
+ {
     VXIO_ASSERT_NOTNULL(instance);
     VXIO_ASSERT_NOTNULL(file);
 
     instance->input = TypedFile{file, detectFileType(file, type)};
+ }
 }
 
 void obj2voxel_set_input_callback(obj2voxel_instance *instance,
