@@ -261,6 +261,8 @@ void initLogging()
     }
 }
 
+
+extern "C" {
 int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv)
 {
     using namespace obj2voxel;
@@ -377,4 +379,5 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv)
     i64 nanos = std::chrono::duration_cast<std::chrono::nanoseconds>(clock_type::now() - startTime).count();
 
     VXIO_LOG(IMPORTANT, "Done! (" + stringifyTime(static_cast<u64>(nanos), 2) + ')');
+}
 }
