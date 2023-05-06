@@ -48,32 +48,6 @@ target_link_libraries(obj2voxel PRIVATE voxelio PRIVATE ${CMAKE_THREAD_LIBS_INIT
 target_include_directories(obj2voxel PRIVATE voxelio/include)
 target_include_directories(obj2voxel PUBLIC include)
 
-
-#####################
-# OBJ2VOXEL LIBRARY SHARED #
-#####################
-
-add_library(obj2voxel2 SHARED
-    src/3rd_party/tinyobj.hpp
-    src/3rd_party/args.hpp
-    src/arrayvector.hpp
-    src/constants.hpp
-    src/ringbuffer.hpp
-    src/threading.hpp
-    src/triangle.hpp
-    src/util.hpp
-    src/voxelization.cpp
-    src/voxelization.hpp
-    src/io.cpp
-    src/io.hpp
-    src/obj2voxel.cpp
-    include/obj2voxel.h)
-    
-target_link_libraries(obj2voxel2 PRIVATE voxelio PRIVATE ${CMAKE_THREAD_LIBS_INIT})
-
-target_include_directories(obj2voxel2 PRIVATE voxelio/include)
-target_include_directories(obj2voxel2 PUBLIC include)
-
 #################
 # OBJ2VOXEL CLI #
 #################
