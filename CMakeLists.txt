@@ -40,6 +40,7 @@ add_library(obj2voxel STATIC
     src/io.cpp
     src/io.hpp
     src/obj2voxel.cpp
+    src/main.cpp
     include/obj2voxel.h)
     
 target_link_libraries(obj2voxel PRIVATE voxelio PRIVATE ${CMAKE_THREAD_LIBS_INIT})
